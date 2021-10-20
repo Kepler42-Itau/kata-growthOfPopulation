@@ -12,6 +12,10 @@
 //Henrique
 //Elisa
 //Paulo S.
+//Tuco
+
+// Paulo S.
+// Paulo M.
 
 package populacao.dojo
 
@@ -22,7 +26,7 @@ import kotlin.test.assertEquals
 class AppTest {
 	@Test fun quantosAnos_1000_2_50_1200() {
 		val populacaoInicial = 1000
-        val porcentagemDeCrescimento = 2
+        val porcentagemDeCrescimento = 2.0
         val novosImigrantes = 50
         val populacaoMeta = 1200
 
@@ -39,7 +43,7 @@ class AppTest {
 
     @Test fun quantosAnos_1500_5_100_5000() {
 		val populacaoInicial = 1500
-        val porcentagemDeCrescimento = 5
+        val porcentagemDeCrescimento = 5.0
         val novosImigrantes = 100
         val populacaoMeta = 5000
 
@@ -64,6 +68,23 @@ class AppTest {
 		val resultadoAnos = crescimentoPopulacional(
                                 populacaoInicial, 
                                 porcentagemDeCrescimento, 
+                                novosImigrantes,
+                                populacaoMeta
+                            )
+
+		assertEquals(resultadoEsperado, resultadoAnos)
+	}
+
+    @Test fun quantosAnos_1500000_0_0_10000_2000000() {
+		val populacaoInicial = 1500000
+        val porcentagemDeCrescimento = 0.0
+        val novosImigrantes = 10000
+        val populacaoMeta = 2000000
+
+        val resultadoEsperado = 50
+		val resultadoAnos = crescimentoPopulacional(
+                                populacaoInicial,
+                                porcentagemDeCrescimento,
                                 novosImigrantes,
                                 populacaoMeta
                             )
