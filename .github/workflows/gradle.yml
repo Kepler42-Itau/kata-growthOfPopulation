@@ -1,0 +1,20 @@
+name: Test
+
+on:
+  push:
+    branches:
+    - main
+jobs:
+  test_job:
+    name: test on push
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Java JDK
+      uses: actions/setup-java@v2.3.1
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: 'gradle'
+    - name: run test
+      run: ./gradlew test
