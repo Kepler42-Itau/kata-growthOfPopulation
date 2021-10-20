@@ -1,0 +1,19 @@
+name: Test3
+on:
+  push:
+    branches:
+    - main
+jobs:
+  test_3:
+    name: run test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: use Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: 'gradle'
+    - name: run gradle
+      run: ./gradlew test
